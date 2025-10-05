@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Connection Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>Testing API Connection</h1>
+    <button onclick="testAPI()">Test API</button>
+    <pre id="result"></pre>
+
+    <script>
+        async function testAPI() {
+            const result = document.getElementById('result');
+            result.textContent = 'Testing...';
+            
+            try {
+                // Test 1: Root endpoint
+                result.textContent += '\n\n1. Testing root endpoint...';
+                const rootRes = await axios.get('http://127.0.0.1:8081/');
+                result.textContent += '\n✅ Root: ' + JSON.stringify(rootRes.data, null, 2);
+                
+                // Test 2: Current weather
+                result.textContent += '\n\n2. Testing current weather...';
+                const weatherRes = await axios.get('http://127.0.0.1:8081/weather/current?lat=23.2599&lon=77.4126');
+                result.textContent += '\n✅ Weather: ' + JSON.stringify(weatherRes.data, null, 2);
+                
+                // Test 3: Prediction
+                result.textContent += '\n\n3. Testing prediction...';
+                const predRes = await axios.post('http://127.0.0.1:8081/predict', {
+                    latitude: 23.2599,
+                    longitude: 77.4126,
+                    date: '2025-10-04'
+                });
+                result.textContent += '\n✅ Prediction: ' + JSON.stringify(predRes.data, null, 2);
+                
+                // Test 4: Forecast
+                result.textContent += '\n\n4. Testing forecast...';
+                const forecastRes = await axios.post('http://127.0.0.1:8081/forecast', {
+                    latitude: 23.2599,
+                    longitude: 77.4126,
+                    months: 6
+                });
+                result.textContent += '\n✅ Forecast: ' + JSON.stringify(forecastRes.data, null, 2);
+                
+            } catch (error) {
+                result.textContent += '\n\n❌ ERROR: ' + error.message;
+                if (error.response) {
+                    result.textContent += '\nStatus: ' + error.response.status;
+                    result.textContent += '\nData: ' + JSON.stringify(error.response.data, null, 2);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
