@@ -1,0 +1,178 @@
+{
+  "targets": [
+    "very_hot",
+    "very_cold",
+    "very_windy",
+    "very_wet",
+    "very_uncomfortable"
+  ],
+  "feature_count": 222,
+  "trained_date": "2025-10-05T07:40:47.970487",
+  "config": {
+    "data": {
+      "raw_data_path": "data/raw",
+      "processed_data_path": "data/processed",
+      "nasa_api_key": "FVVrb5hG30eYrxKxg91K4Jex1u8W75TKxBsMvYqL",
+      "power_api_url": "https://power.larc.nasa.gov/api/temporal/daily/point",
+      "start_date": "2010-01-01",
+      "end_date": "2023-12-31",
+      "parameters": [
+        "T2M",
+        "T2M_MAX",
+        "T2M_MIN",
+        "PRECTOTCORR",
+        "WS2M",
+        "RH2M",
+        "PS",
+        "CLOUD_AMT"
+      ]
+    },
+    "thresholds": {
+      "very_hot": {
+        "metric": "T2M_MAX",
+        "percentile": 95,
+        "absolute": 35
+      },
+      "very_cold": {
+        "metric": "T2M_MIN",
+        "percentile": 5,
+        "absolute": -5
+      },
+      "very_windy": {
+        "metric": "WS2M",
+        "percentile": 95,
+        "absolute": 15
+      },
+      "very_wet": {
+        "metric": "PRECTOTCORR",
+        "percentile": 95,
+        "absolute": 50
+      },
+      "very_uncomfortable": {
+        "metric": "heat_index",
+        "percentile": 95,
+        "absolute": 40
+      }
+    },
+    "features": {
+      "rolling_window_days": [
+        3,
+        7,
+        14,
+        30
+      ],
+      "lag_days": [
+        1,
+        2,
+        3,
+        7
+      ],
+      "historical_comparison_years": 5,
+      "calendar_features": [
+        "day_of_year",
+        "month",
+        "season",
+        "is_weekend"
+      ]
+    },
+    "models": {
+      "random_forest": {
+        "n_estimators": 200,
+        "max_depth": 15,
+        "min_samples_split": 5,
+        "class_weight": "balanced"
+      },
+      "xgboost": {
+        "n_estimators": 300,
+        "max_depth": 10,
+        "learning_rate": 0.05,
+        "scale_pos_weight": 3
+      },
+      "lightgbm": {
+        "n_estimators": 300,
+        "max_depth": 10,
+        "learning_rate": 0.05,
+        "num_leaves": 50
+      }
+    },
+    "training": {
+      "test_size": 0.2,
+      "validation_size": 0.2,
+      "random_seed": 42,
+      "chronological_split": true,
+      "cross_validation_folds": 5
+    },
+    "evaluation": {
+      "metrics": [
+        "roc_auc",
+        "precision_recall_auc",
+        "brier_score",
+        "log_loss"
+      ],
+      "calibration": {
+        "enabled": true,
+        "n_bins": 10
+      }
+    },
+    "api": {
+      "host": "127.0.0.1",
+      "port": 8081,
+      "model_path": "models/trained"
+    },
+    "frontend": {
+      "title": "Extreme Weather Prediction System",
+      "default_location": {
+        "latitude": 40.7128,
+        "longitude": -74.006,
+        "name": "New York, NY"
+      }
+    }
+  },
+  "model_performance": {
+    "very_hot": {
+      "best_model": "lightgbm",
+      "metrics": {
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "brier_score": 1.1226045740716284e-08,
+        "log_loss": 5.34994133903131e-06
+      }
+    },
+    "very_cold": {
+      "best_model": "xgboost",
+      "metrics": {
+        "roc_auc": 1.0,
+        "pr_auc": 1.0000000000000002,
+        "brier_score": 0.0002442196729064517,
+        "log_loss": 0.0009479592760331165
+      }
+    },
+    "very_windy": {
+      "best_model": "xgboost",
+      "metrics": {
+        "roc_auc": 0.9999999999999999,
+        "pr_auc": 0.9999999999999998,
+        "brier_score": 7.960931566753425e-07,
+        "log_loss": 0.0003141120316302997
+      }
+    },
+    "very_wet": {
+      "best_model": "random_forest",
+      "metrics": {
+        "roc_auc": 1.0,
+        "pr_auc": 1.0,
+        "brier_score": 0.002637166556128221,
+        "log_loss": 0.014508864707831819
+      }
+    },
+    "very_uncomfortable": {
+      "best_model": "xgboost",
+      "metrics": {
+        "roc_auc": 0.9975609756097561,
+        "pr_auc": 0.9981891163132737,
+        "brier_score": 0.0012552533865910827,
+        "log_loss": 0.01002691627894013
+      }
+    }
+  }
+}
