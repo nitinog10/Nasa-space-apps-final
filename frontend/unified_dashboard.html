@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unified Weather Intelligence System</title>
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0f1b; color: #fff; overflow: hidden; }
+        
+        .main-container { display: flex; height: 100vh; }
+        
+        /* Left Panel - Interactive Dashboard */
+        .left-panel {
+            width: 400px;
+            background: linear-gradient(135deg, #1a2332 0%, #0f1823 100%);
+            padding: 20px;
+            overflow-y: auto;
+            border-right: 1px solid #2a3f5f;
+        }
+        
+        .brand-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .brand-header h1 {
+            font-size: 28px;
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+        
+        .search-section {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #4facfe;
+            box-shadow: 0 0 0 3px rgba(79,172,254,0.2);
+        }
+        
+        .btn-primary {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .btn-primary:hover { transform: translateY(-2px); }
+        
+        /* Model Response Section */
+        .model-response {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .model-response h3 {
+            color: #4facfe;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .risk-indicator {
+            text-align: center;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+        
+        .risk-extreme { background: rgba(231,76,60,0.2); border: 2px solid #e74c3c; color: #e74c3c; }
+        .risk-high { background: rgba(243,156,18,0.2); border: 2px solid #f39c12; color: #f39c12; }
+        .risk-moderate { background: rgba(241,196,15,0.2); border: 2px solid #f1c40f; color: #f1c40f; }
+        .risk-low { background: rgba(46,204,113,0.2); border: 2px solid #2ecc71; color: #2ecc71; }
+        .risk-minimal { background: rgba(149,165,166,0.2); border: 2px solid #95a5a6; color: #95a5a6; }
+        
+        .model-metrics {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        
+        .metric-box {
+            background: rgba(255,255,255,0.05);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .metric-label {
+            font-size: 11px;
+            opacity: 0.7;
+            text-transform: uppercase;
+        }
+        
+        .metric-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4facfe;
+        }
+        
+        /* Right Panel - Map */
+        .right-panel {
+            flex: 1;
+            position: relative;
+        }
+        
+        #weatherMap {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .map-controls {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .layer-selector {
+            background: rgba(26,35,50,0.9);
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .layer-btn {
+            padding: 10px 15px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+        
+        .layer-btn.active {
+            background: rgba(79,172,254,0.3);
+            border-color: #4facfe;
+        }
+        
+        .layer-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .map-style-selector {
+            background: rgba(26,35,50,0.9);
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        
+        .style-btn {
+            padding: 8px 12px;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 12px;
+        }
+        
+        .style-btn.active {
+            background: rgba(79,172,254,0.3);
+            border-color: #4facfe;
+        }
+        
+        .style-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        /* Current Weather Display */
+        .current-weather {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .weather-temp {
+            font-size: 48px;
+            font-weight: bold;
+            color: #4facfe;
+        }
+        
+        .weather-location {
+            font-size: 18px;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        .weather-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+        
+        /* Forecast Mini View */
+        .forecast-mini {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 15px;
+        }
+        
+        .forecast-mini h3 {
+            color: #4facfe;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        
+        .forecast-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+        }
+        
+        .forecast-item:last-child {
+            border-bottom: none;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            opacity: 0.6;
+        }
+        
+        /* Dark Leaflet Theme */
+        .leaflet-container {
+            background-color: #0a0f1b;
+        }
+        
+        .leaflet-control-zoom a,
+        .leaflet-control-attribution {
+            background-color: rgba(26,35,50,0.9) !important;
+            color: white !important;
+        }
+        
+        /* Model Working Details */
+        .model-working {
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        
+        .working-step {
+            background: rgba(255,255,255,0.05);
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border-left: 3px solid #4facfe;
+        }
+        
+        .working-step.active {
+            border-left-color: #00f2fe;
+            background: rgba(79,172,254,0.1);
+        }
+        
+        .feature-count {
+            color: #4facfe;
+            font-weight: bold;
+        }
+        
+        .model-type {
+            color: #00f2fe;
+            font-weight: bold;
+        }
+        
+        .confidence-score {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- Left Panel - Interactive Dashboard -->
+        <div class="left-panel">
+            <div class="brand-header">
+                <h1>Weather Intelligence</h1>
+                <p style="opacity: 0.7;">ML model Climate Analysis</p>l
+            </div>
+            
+            <!-- Search Section -->
+            <div class="search-section">
+                <input type="text" id="citySearch" class="search-input" placeholder="Search city (e.g., Mumbai, New York)">
+                <input type="number" id="latitude" class="search-input" placeholder="Or enter latitude" step="0.0001">
+                <input type="number" id="longitude" class="search-input" placeholder="Or enter longitude" step="0.0001">
+                <input type="date" id="predictionDate" class="search-input">
+                <button id="analyzeBtn" class="btn-primary">Analyze Location</button>
+            </div>
+            
+            <!-- Current Weather -->
+            <div id="currentWeather" class="current-weather">
+                <div class="loading">Select a location to begin</div>
+            </div>
+            
+            <!-- Model Response -->
+            <div class="model-response">
+                <h3>🤖 AI Model Response</h3>
+                <div id="modelContent">
+                    <div class="loading">Waiting for location...</div>
+                </div>
+            </div>
+            
+            <!-- Model Working Details -->
+            <div class="model-response">
+                <h3>⚙️ Model Working Details</h3>
+                <div id="modelWorking">
+                    <div class="loading">Analyzing...</div>
+                </div>
+            </div>
+            
+            <!-- Forecast Mini View -->
+            <div class="forecast-mini">
+                <h3>📊 6-Month Outlook</h3>
+                <div id="forecastMini">
+                    <div class="loading">No forecast available</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Panel - Weather Map -->
+        <div class="right-panel">
+            <div id="weatherMap"></div>
+            <div class="map-controls">
+                <div class="layer-selector">
+                    <button class="layer-btn active" data-layer="temp_new">🌡️ Temperature</button>
+                    <button class="layer-btn" data-layer="wind_new">💨 Wind</button>
+                    <button class="layer-btn" data-layer="precipitation_new">💧 Precipitation</button>
+                    <button class="layer-btn" data-layer="clouds_new">☁️ Clouds</button>
+                </div>
+                <div class="map-style-selector">
+                    <button class="style-btn active" data-style="hybrid">🛰️ Satellite</button>
+                    <button class="style-btn" data-style="dark">🌙 Dark</button>
+                    <button class="style-btn" id="liveLocationBtn">📍 Live Location</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="weather_data_manager.js"></script>
+    <script src="unified_dashboard.js"></script>
+</body>
+</html>

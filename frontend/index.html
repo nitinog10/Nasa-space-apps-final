@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extreme Weather Prediction System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">
+                    <span class="icon">🌍</span>
+                    Extreme Weather Prediction System
+                </h1>
+                <p class="subtitle">AI-Powered Weather Risk Assessment using NASA Data</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Input Section -->
+            <section class="card input-section">
+                <h2 class="section-title">Location & Date</h2>
+                
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="latitude">Latitude</label>
+                        <input type="number" id="latitude" placeholder="40.7128" 
+                               min="-90" max="90" step="0.0001" value="40.7128">
+                        <span class="input-hint">Between -90 and 90</span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="longitude">Longitude</label>
+                        <input type="number" id="longitude" placeholder="-74.0060" 
+                               min="-180" max="180" step="0.0001" value="-74.0060">
+                        <span class="input-hint">Between -180 and 180</span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date">
+                        <span class="input-hint">Select prediction date</span>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="location-name">Location Name (Optional)</label>
+                        <input type="text" id="location-name" placeholder="New York, NY">
+                        <span class="input-hint">For display purposes</span>
+                    </div>
+                </div>
+
+                <button id="predict-btn" class="btn-primary">
+                    <span class="btn-icon">🔮</span>
+                    Predict Weather Risks
+                </button>
+            </section>
+
+            <!-- Results Section -->
+            <section id="results-section" class="results-section hidden">
+                <!-- Risk Level Banner -->
+                <div id="risk-banner" class="card risk-banner">
+                    <div class="risk-content">
+                        <span class="risk-icon">⚠️</span>
+                        <div>
+                            <h3 class="risk-title">Overall Risk Level</h3>
+                            <p id="risk-level" class="risk-level">CALCULATING...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Predictions Grid -->
+                <div class="predictions-grid">
+                    <!-- Very Hot -->
+                    <div class="card prediction-card" data-type="very_hot">
+                        <div class="prediction-header">
+                            <span class="prediction-icon">🔥</span>
+                            <h3>Very Hot</h3>
+                        </div>
+                        <div class="prediction-value">
+                            <span id="prob-very_hot" class="percentage">--</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div id="bar-very_hot" class="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Very Cold -->
+                    <div class="card prediction-card" data-type="very_cold">
+                        <div class="prediction-header">
+                            <span class="prediction-icon">❄️</span>
+                            <h3>Very Cold</h3>
+                        </div>
+                        <div class="prediction-value">
+                            <span id="prob-very_cold" class="percentage">--</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div id="bar-very_cold" class="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Very Windy -->
+                    <div class="card prediction-card" data-type="very_windy">
+                        <div class="prediction-header">
+                            <span class="prediction-icon">💨</span>
+                            <h3>Very Windy</h3>
+                        </div>
+                        <div class="prediction-value">
+                            <span id="prob-very_windy" class="percentage">--</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div id="bar-very_windy" class="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Very Wet -->
+                    <div class="card prediction-card" data-type="very_wet">
+                        <div class="prediction-header">
+                            <span class="prediction-icon">🌧️</span>
+                            <h3>Very Wet</h3>
+                        </div>
+                        <div class="prediction-value">
+                            <span id="prob-very_wet" class="percentage">--</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div id="bar-very_wet" class="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Very Uncomfortable -->
+                    <div class="card prediction-card" data-type="very_uncomfortable">
+                        <div class="prediction-header">
+                            <span class="prediction-icon">🥵</span>
+                            <h3>Very Uncomfortable</h3>
+                        </div>
+                        <div class="prediction-value">
+                            <span id="prob-very_uncomfortable" class="percentage">--</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div id="bar-very_uncomfortable" class="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart Section -->
+                <div class="card chart-section">
+                    <h2 class="section-title">Risk Visualization</h2>
+                    <canvas id="riskChart"></canvas>
+                </div>
+
+                <!-- Details Section -->
+                <div class="card details-section">
+                    <h2 class="section-title">Prediction Details</h2>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Location:</span>
+                            <span id="detail-location" class="detail-value">--</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Date:</span>
+                            <span id="detail-date" class="detail-value">--</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Prediction Time:</span>
+                            <span id="detail-timestamp" class="detail-value">--</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Loading Spinner -->
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Analyzing weather patterns...</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="error-message" class="error-message hidden">
+                <span class="error-icon">❌</span>
+                <p id="error-text"></p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by NASA Earth Observation Data & Machine Learning</p>
+            <p class="footer-small">
+                Models: Random Forest, XGBoost, LightGBM | 
+                Data Source: NASA POWER API
+            </p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+

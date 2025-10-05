@@ -1,0 +1,58 @@
+{
+  "continent": "North America",
+  "hemisphere": "Northern",
+  "six_month_patterns": {
+    "month_1": {
+      "temperature": {"avg": 12, "min": -10, "max": 25},
+      "humidity": {"avg": 68, "min": 30, "max": 85},
+      "precipitation": {"avg": 90, "min": 10, "max": 250},
+      "wind_speed": {"avg": 22, "min": 5, "max": 40},
+      "extreme_weather_risk": {"very_hot": 0.03, "very_cold": 0.30, "very_windy": 0.20, "very_wet": 0.15, "very_uncomfortable": 0.12}
+    },
+    "month_2": {
+      "temperature": {"avg": 15, "min": -5, "max": 28},
+      "humidity": {"avg": 65, "min": 25, "max": 82},
+      "precipitation": {"avg": 110, "min": 15, "max": 280},
+      "wind_speed": {"avg": 20, "min": 4, "max": 38},
+      "extreme_weather_risk": {"very_hot": 0.05, "very_cold": 0.25, "very_windy": 0.18, "very_wet": 0.18, "very_uncomfortable": 0.10}
+    },
+    "month_3": {
+      "temperature": {"avg": 20, "min": 0, "max": 32},
+      "humidity": {"avg": 62, "min": 20, "max": 80},
+      "precipitation": {"avg": 130, "min": 20, "max": 300},
+      "wind_speed": {"avg": 18, "min": 3, "max": 35},
+      "extreme_weather_risk": {"very_hot": 0.08, "very_cold": 0.15, "very_windy": 0.15, "very_wet": 0.22, "very_uncomfortable": 0.08}
+    },
+    "month_4": {
+      "temperature": {"avg": 25, "min": 5, "max": 35},
+      "humidity": {"avg": 58, "min": 15, "max": 78},
+      "precipitation": {"avg": 150, "min": 25, "max": 350},
+      "wind_speed": {"avg": 16, "min": 2, "max": 32},
+      "extreme_weather_risk": {"very_hot": 0.15, "very_cold": 0.08, "very_windy": 0.12, "very_wet": 0.25, "very_uncomfortable": 0.06}
+    },
+    "month_5": {
+      "temperature": {"avg": 28, "min": 8, "max": 38},
+      "humidity": {"avg": 55, "min": 10, "max": 75},
+      "precipitation": {"avg": 170, "min": 30, "max": 400},
+      "wind_speed": {"avg": 14, "min": 2, "max": 30},
+      "extreme_weather_risk": {"very_hot": 0.25, "very_cold": 0.03, "very_windy": 0.10, "very_wet": 0.28, "very_uncomfortable": 0.05}
+    },
+    "month_6": {
+      "temperature": {"avg": 32, "min": 12, "max": 42},
+      "humidity": {"avg": 52, "min": 8, "max": 72},
+      "precipitation": {"avg": 190, "min": 35, "max": 450},
+      "wind_speed": {"avg": 12, "min": 1, "max": 28},
+      "extreme_weather_risk": {"very_hot": 0.35, "very_cold": 0.01, "very_windy": 0.08, "very_wet": 0.32, "very_uncomfortable": 0.04}
+    }
+  },
+  "representative_cities": [
+    {"name": "New York", "lat": 40.7128, "lon": -74.0060, "climate_zone": "continental"},
+    {"name": "Los Angeles", "lat": 34.0522, "lon": -118.2437, "climate_zone": "mediterranean"},
+    {"name": "Chicago", "lat": 41.8781, "lon": -87.6298, "climate_zone": "continental"},
+    {"name": "Houston", "lat": 29.7604, "lon": -95.3698, "climate_zone": "subtropical"},
+    {"name": "Miami", "lat": 25.7617, "lon": -80.1918, "climate_zone": "tropical"},
+    {"name": "Seattle", "lat": 47.6062, "lon": -122.3321, "climate_zone": "maritime"},
+    {"name": "Denver", "lat": 39.7392, "lon": -104.9903, "climate_zone": "continental"},
+    {"name": "Phoenix", "lat": 33.4484, "lon": -112.0740, "climate_zone": "arid"}
+  ]
+}

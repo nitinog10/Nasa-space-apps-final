@@ -1,0 +1,58 @@
+{
+  "continent": "Asia",
+  "hemisphere": "Northern",
+  "six_month_patterns": {
+    "month_1": {
+      "temperature": {"avg": 15, "min": 5, "max": 25},
+      "humidity": {"avg": 65, "min": 40, "max": 85},
+      "precipitation": {"avg": 120, "min": 20, "max": 300},
+      "wind_speed": {"avg": 18, "min": 8, "max": 35},
+      "extreme_weather_risk": {"very_hot": 0.05, "very_cold": 0.15, "very_windy": 0.10, "very_wet": 0.20, "very_uncomfortable": 0.12}
+    },
+    "month_2": {
+      "temperature": {"avg": 18, "min": 8, "max": 28},
+      "humidity": {"avg": 70, "min": 45, "max": 90},
+      "precipitation": {"avg": 150, "min": 30, "max": 400},
+      "wind_speed": {"avg": 20, "min": 10, "max": 38},
+      "extreme_weather_risk": {"very_hot": 0.08, "very_cold": 0.08, "very_windy": 0.12, "very_wet": 0.25, "very_uncomfortable": 0.15}
+    },
+    "month_3": {
+      "temperature": {"avg": 22, "min": 12, "max": 32},
+      "humidity": {"avg": 75, "min": 50, "max": 95},
+      "precipitation": {"avg": 180, "min": 40, "max": 450},
+      "wind_speed": {"avg": 22, "min": 12, "max": 40},
+      "extreme_weather_risk": {"very_hot": 0.12, "very_cold": 0.03, "very_windy": 0.15, "very_wet": 0.30, "very_uncomfortable": 0.18}
+    },
+    "month_4": {
+      "temperature": {"avg": 26, "min": 16, "max": 36},
+      "humidity": {"avg": 78, "min": 55, "max": 95},
+      "precipitation": {"avg": 200, "min": 50, "max": 500},
+      "wind_speed": {"avg": 25, "min": 15, "max": 45},
+      "extreme_weather_risk": {"very_hot": 0.18, "very_cold": 0.01, "very_windy": 0.18, "very_wet": 0.35, "very_uncomfortable": 0.22}
+    },
+    "month_5": {
+      "temperature": {"avg": 28, "min": 18, "max": 38},
+      "humidity": {"avg": 80, "min": 60, "max": 95},
+      "precipitation": {"avg": 220, "min": 60, "max": 550},
+      "wind_speed": {"avg": 28, "min": 18, "max": 50},
+      "extreme_weather_risk": {"very_hot": 0.25, "very_cold": 0.005, "very_windy": 0.20, "very_wet": 0.40, "very_uncomfortable": 0.28}
+    },
+    "month_6": {
+      "temperature": {"avg": 30, "min": 20, "max": 40},
+      "humidity": {"avg": 82, "min": 65, "max": 95},
+      "precipitation": {"avg": 250, "min": 80, "max": 600},
+      "wind_speed": {"avg": 30, "min": 20, "max": 55},
+      "extreme_weather_risk": {"very_hot": 0.32, "very_cold": 0.002, "very_windy": 0.22, "very_wet": 0.45, "very_uncomfortable": 0.35}
+    }
+  },
+  "representative_cities": [
+    {"name": "Tokyo", "lat": 35.6762, "lon": 139.6503, "climate_zone": "temperate"},
+    {"name": "Mumbai", "lat": 19.0760, "lon": 72.8777, "climate_zone": "tropical"},
+    {"name": "Beijing", "lat": 39.9042, "lon": 116.4074, "climate_zone": "continental"},
+    {"name": "Dubai", "lat": 25.2048, "lon": 55.2708, "climate_zone": "arid"},
+    {"name": "Singapore", "lat": 1.3521, "lon": 103.8198, "climate_zone": "tropical"},
+    {"name": "Seoul", "lat": 37.5665, "lon": 126.9780, "climate_zone": "temperate"},
+    {"name": "Bangkok", "lat": 13.7563, "lon": 100.5018, "climate_zone": "tropical"},
+    {"name": "Kolkata", "lat": 22.5726, "lon": 88.3639, "climate_zone": "tropical"}
+  ]
+}

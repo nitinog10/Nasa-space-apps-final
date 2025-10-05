@@ -1,0 +1,62 @@
+{
+  "very_hot": {
+    "roc_auc": 1.0,
+    "pr_auc": 1.0,
+    "brier_score": 0.0009468405176619518,
+    "plots": {
+      "roc": "evaluation_results\\very_hot_roc_curve.png",
+      "pr": "evaluation_results\\very_hot_pr_curve.png",
+      "calibration": "evaluation_results\\very_hot_calibration.png",
+      "confusion_matrix": "evaluation_results\\very_hot_confusion_matrix.png",
+      "feature_importance": "evaluation_results\\very_hot_feature_importance.png"
+    }
+  },
+  "very_cold": {
+    "roc_auc": 1.0,
+    "pr_auc": 1.0,
+    "brier_score": 0.0005357515299432664,
+    "plots": {
+      "roc": "evaluation_results\\very_cold_roc_curve.png",
+      "pr": "evaluation_results\\very_cold_pr_curve.png",
+      "calibration": "evaluation_results\\very_cold_calibration.png",
+      "confusion_matrix": "evaluation_results\\very_cold_confusion_matrix.png",
+      "feature_importance": "evaluation_results\\very_cold_feature_importance.png"
+    }
+  },
+  "very_windy": {
+    "roc_auc": 1.0,
+    "pr_auc": 1.0,
+    "brier_score": 0.0006087652258152716,
+    "plots": {
+      "roc": "evaluation_results\\very_windy_roc_curve.png",
+      "pr": "evaluation_results\\very_windy_pr_curve.png",
+      "calibration": "evaluation_results\\very_windy_calibration.png",
+      "confusion_matrix": "evaluation_results\\very_windy_confusion_matrix.png",
+      "feature_importance": "evaluation_results\\very_windy_feature_importance.png"
+    }
+  },
+  "very_wet": {
+    "roc_auc": 1.0,
+    "pr_auc": 0.9999999999999999,
+    "brier_score": 0.0009461900201568289,
+    "plots": {
+      "roc": "evaluation_results\\very_wet_roc_curve.png",
+      "pr": "evaluation_results\\very_wet_pr_curve.png",
+      "calibration": "evaluation_results\\very_wet_calibration.png",
+      "confusion_matrix": "evaluation_results\\very_wet_confusion_matrix.png",
+      "feature_importance": "evaluation_results\\very_wet_feature_importance.png"
+    }
+  },
+  "very_uncomfortable": {
+    "roc_auc": 0.9999999542375837,
+    "pr_auc": 0.9999999799819289,
+    "brier_score": 0.00047112727834425905,
+    "plots": {
+      "roc": "evaluation_results\\very_uncomfortable_roc_curve.png",
+      "pr": "evaluation_results\\very_uncomfortable_pr_curve.png",
+      "calibration": "evaluation_results\\very_uncomfortable_calibration.png",
+      "confusion_matrix": "evaluation_results\\very_uncomfortable_confusion_matrix.png",
+      "feature_importance": "evaluation_results\\very_uncomfortable_feature_importance.png"
+    }
+  }
+}

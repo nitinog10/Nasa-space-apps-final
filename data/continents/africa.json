@@ -1,0 +1,58 @@
+{
+  "continent": "Africa",
+  "hemisphere": "Mixed",
+  "six_month_patterns": {
+    "month_1": {
+      "temperature": {"avg": 25, "min": 8, "max": 42},
+      "humidity": {"avg": 65, "min": 20, "max": 90},
+      "precipitation": {"avg": 100, "min": 0, "max": 400},
+      "wind_speed": {"avg": 16, "min": 3, "max": 35},
+      "extreme_weather_risk": {"very_hot": 0.25, "very_cold": 0.08, "very_windy": 0.10, "very_wet": 0.20, "very_uncomfortable": 0.22}
+    },
+    "month_2": {
+      "temperature": {"avg": 28, "min": 12, "max": 45},
+      "humidity": {"avg": 68, "min": 25, "max": 92},
+      "precipitation": {"avg": 120, "min": 5, "max": 450},
+      "wind_speed": {"avg": 18, "min": 4, "max": 38},
+      "extreme_weather_risk": {"very_hot": 0.30, "very_cold": 0.05, "very_windy": 0.12, "very_wet": 0.25, "very_uncomfortable": 0.28}
+    },
+    "month_3": {
+      "temperature": {"avg": 32, "min": 15, "max": 48},
+      "humidity": {"avg": 72, "min": 30, "max": 95},
+      "precipitation": {"avg": 150, "min": 10, "max": 500},
+      "wind_speed": {"avg": 20, "min": 5, "max": 40},
+      "extreme_weather_risk": {"very_hot": 0.40, "very_cold": 0.02, "very_windy": 0.15, "very_wet": 0.30, "very_uncomfortable": 0.35}
+    },
+    "month_4": {
+      "temperature": {"avg": 35, "min": 18, "max": 50},
+      "humidity": {"avg": 75, "min": 35, "max": 95},
+      "precipitation": {"avg": 180, "min": 15, "max": 550},
+      "wind_speed": {"avg": 22, "min": 6, "max": 42},
+      "extreme_weather_risk": {"very_hot": 0.45, "very_cold": 0.01, "very_windy": 0.18, "very_wet": 0.35, "very_uncomfortable": 0.40}
+    },
+    "month_5": {
+      "temperature": {"avg": 32, "min": 15, "max": 48},
+      "humidity": {"avg": 72, "min": 30, "max": 95},
+      "precipitation": {"avg": 150, "min": 10, "max": 500},
+      "wind_speed": {"avg": 20, "min": 5, "max": 40},
+      "extreme_weather_risk": {"very_hot": 0.40, "very_cold": 0.02, "very_windy": 0.15, "very_wet": 0.30, "very_uncomfortable": 0.35}
+    },
+    "month_6": {
+      "temperature": {"avg": 28, "min": 12, "max": 45},
+      "humidity": {"avg": 68, "min": 25, "max": 92},
+      "precipitation": {"avg": 120, "min": 5, "max": 450},
+      "wind_speed": {"avg": 18, "min": 4, "max": 38},
+      "extreme_weather_risk": {"very_hot": 0.30, "very_cold": 0.05, "very_windy": 0.12, "very_wet": 0.25, "very_uncomfortable": 0.28}
+    }
+  },
+  "representative_cities": [
+    {"name": "Cairo", "lat": 30.0444, "lon": 31.2357, "climate_zone": "arid"},
+    {"name": "Lagos", "lat": 6.5244, "lon": 3.3792, "climate_zone": "tropical"},
+    {"name": "Johannesburg", "lat": -26.2041, "lon": 28.0473, "climate_zone": "subtropical"},
+    {"name": "Nairobi", "lat": -1.2921, "lon": 36.8219, "climate_zone": "temperate"},
+    {"name": "Cape Town", "lat": -33.9249, "lon": 18.4241, "climate_zone": "mediterranean"},
+    {"name": "Casablanca", "lat": 33.5731, "lon": -7.5898, "climate_zone": "mediterranean"},
+    {"name": "Addis Ababa", "lat": 9.1450, "lon": 38.7667, "climate_zone": "temperate"},
+    {"name": "Kinshasa", "lat": -4.4419, "lon": 15.2663, "climate_zone": "tropical"}
+  ]
+}

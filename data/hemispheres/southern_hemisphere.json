@@ -1,0 +1,75 @@
+{
+  "hemisphere": "Southern",
+  "description": "South of the equator (0° to 90° S)",
+  "seasonal_characteristics": {
+    "spring": {"months": [9, 10, 11], "temp_trend": "warming", "precip_trend": "increasing"},
+    "summer": {"months": [12, 1, 2], "temp_trend": "hot", "precip_trend": "variable"},
+    "autumn": {"months": [3, 4, 5], "temp_trend": "cooling", "precip_trend": "decreasing"},
+    "winter": {"months": [6, 7, 8], "temp_trend": "cold", "precip_trend": "rain/snow"}
+  },
+  "six_month_patterns": {
+    "month_1": {
+      "global_temp": {"avg": 28, "range": [-15, 45]},
+      "global_humidity": {"avg": 72, "range": [30, 95]},
+      "global_precipitation": {"avg": 180, "range": [10, 600]},
+      "global_wind": {"avg": 20, "range": [3, 50]},
+      "extreme_weather_trends": {
+        "very_hot": 0.35, "very_cold": 0.05, "very_windy": 0.15, 
+        "very_wet": 0.40, "very_uncomfortable": 0.32
+      }
+    },
+    "month_2": {
+      "global_temp": {"avg": 30, "range": [-10, 48]},
+      "global_humidity": {"avg": 75, "range": [35, 95]},
+      "global_precipitation": {"avg": 200, "range": [15, 650]},
+      "global_wind": {"avg": 22, "range": [4, 52]},
+      "extreme_weather_trends": {
+        "very_hot": 0.40, "very_cold": 0.02, "very_windy": 0.18, 
+        "very_wet": 0.45, "very_uncomfortable": 0.38
+      }
+    },
+    "month_3": {
+      "global_temp": {"avg": 32, "range": [-5, 50]},
+      "global_humidity": {"avg": 78, "range": [40, 95]},
+      "global_precipitation": {"avg": 220, "range": [20, 700]},
+      "global_wind": {"avg": 24, "range": [5, 55]},
+      "extreme_weather_trends": {
+        "very_hot": 0.45, "very_cold": 0.01, "very_windy": 0.20, 
+        "very_wet": 0.50, "very_uncomfortable": 0.42
+      }
+    },
+    "month_4": {
+      "global_temp": {"avg": 30, "range": [-10, 48]},
+      "global_humidity": {"avg": 75, "range": [35, 95]},
+      "global_precipitation": {"avg": 200, "range": [15, 650]},
+      "global_wind": {"avg": 22, "range": [4, 52]},
+      "extreme_weather_trends": {
+        "very_hot": 0.40, "very_cold": 0.02, "very_windy": 0.18, 
+        "very_wet": 0.45, "very_uncomfortable": 0.38
+      }
+    },
+    "month_5": {
+      "global_temp": {"avg": 26, "range": [-15, 42]},
+      "global_humidity": {"avg": 68, "range": [25, 90]},
+      "global_precipitation": {"avg": 160, "range": [5, 500]},
+      "global_wind": {"avg": 18, "range": [3, 45]},
+      "extreme_weather_trends": {
+        "very_hot": 0.28, "very_cold": 0.08, "very_windy": 0.12, 
+        "very_wet": 0.35, "very_uncomfortable": 0.25
+      }
+    },
+    "month_6": {
+      "global_temp": {"avg": 22, "range": [-20, 38]},
+      "global_humidity": {"avg": 62, "range": [20, 85]},
+      "global_precipitation": {"avg": 120, "range": [2, 400]},
+      "global_wind": {"avg": 16, "range": [2, 40]},
+      "extreme_weather_trends": {
+        "very_hot": 0.18, "very_cold": 0.15, "very_windy": 0.10, 
+        "very_wet": 0.25, "very_uncomfortable": 0.18
+      }
+    }
+  },
+  "major_climate_zones": [
+    "Tropical", "Subtropical", "Temperate", "Continental", "Subantarctic", "Antarctic"
+  ]
+}

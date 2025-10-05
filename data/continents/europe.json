@@ -1,0 +1,58 @@
+{
+  "continent": "Europe",
+  "hemisphere": "Northern",
+  "six_month_patterns": {
+    "month_1": {
+      "temperature": {"avg": 8, "min": -2, "max": 18},
+      "humidity": {"avg": 75, "min": 50, "max": 90},
+      "precipitation": {"avg": 80, "min": 20, "max": 200},
+      "wind_speed": {"avg": 20, "min": 8, "max": 35},
+      "extreme_weather_risk": {"very_hot": 0.02, "very_cold": 0.25, "very_windy": 0.15, "very_wet": 0.18, "very_uncomfortable": 0.10}
+    },
+    "month_2": {
+      "temperature": {"avg": 10, "min": 0, "max": 20},
+      "humidity": {"avg": 72, "min": 45, "max": 88},
+      "precipitation": {"avg": 70, "min": 15, "max": 180},
+      "wind_speed": {"avg": 18, "min": 6, "max": 32},
+      "extreme_weather_risk": {"very_hot": 0.03, "very_cold": 0.20, "very_windy": 0.12, "very_wet": 0.15, "very_uncomfortable": 0.08}
+    },
+    "month_3": {
+      "temperature": {"avg": 14, "min": 4, "max": 24},
+      "humidity": {"avg": 68, "min": 40, "max": 85},
+      "precipitation": {"avg": 90, "min": 25, "max": 220},
+      "wind_speed": {"avg": 16, "min": 5, "max": 30},
+      "extreme_weather_risk": {"very_hot": 0.05, "very_cold": 0.12, "very_windy": 0.10, "very_wet": 0.20, "very_uncomfortable": 0.06}
+    },
+    "month_4": {
+      "temperature": {"avg": 18, "min": 8, "max": 28},
+      "humidity": {"avg": 65, "min": 35, "max": 82},
+      "precipitation": {"avg": 110, "min": 30, "max": 250},
+      "wind_speed": {"avg": 14, "min": 4, "max": 28},
+      "extreme_weather_risk": {"very_hot": 0.10, "very_cold": 0.05, "very_windy": 0.08, "very_wet": 0.25, "very_uncomfortable": 0.04}
+    },
+    "month_5": {
+      "temperature": {"avg": 22, "min": 12, "max": 32},
+      "humidity": {"avg": 62, "min": 30, "max": 80},
+      "precipitation": {"avg": 130, "min": 35, "max": 280},
+      "wind_speed": {"avg": 12, "min": 3, "max": 25},
+      "extreme_weather_risk": {"very_hot": 0.15, "very_cold": 0.02, "very_windy": 0.06, "very_wet": 0.30, "very_uncomfortable": 0.03}
+    },
+    "month_6": {
+      "temperature": {"avg": 25, "min": 15, "max": 35},
+      "humidity": {"avg": 60, "min": 25, "max": 78},
+      "precipitation": {"avg": 150, "min": 40, "max": 300},
+      "wind_speed": {"avg": 10, "min": 2, "max": 22},
+      "extreme_weather_risk": {"very_hot": 0.22, "very_cold": 0.01, "very_windy": 0.04, "very_wet": 0.35, "very_uncomfortable": 0.02}
+    }
+  },
+  "representative_cities": [
+    {"name": "London", "lat": 51.5074, "lon": -0.1278, "climate_zone": "maritime"},
+    {"name": "Paris", "lat": 48.8566, "lon": 2.3522, "climate_zone": "maritime"},
+    {"name": "Berlin", "lat": 52.5200, "lon": 13.4050, "climate_zone": "continental"},
+    {"name": "Rome", "lat": 41.9028, "lon": 12.4964, "climate_zone": "mediterranean"},
+    {"name": "Madrid", "lat": 40.4168, "lon": -3.7038, "climate_zone": "continental"},
+    {"name": "Amsterdam", "lat": 52.3676, "lon": 4.9041, "climate_zone": "maritime"},
+    {"name": "Vienna", "lat": 48.2082, "lon": 16.3738, "climate_zone": "continental"},
+    {"name": "Zurich", "lat": 47.3769, "lon": 8.5417, "climate_zone": "alpine"}
+  ]
+}

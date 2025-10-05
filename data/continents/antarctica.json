@@ -1,0 +1,56 @@
+{
+  "continent": "Antarctica",
+  "hemisphere": "Southern",
+  "six_month_patterns": {
+    "month_1": {
+      "temperature": {"avg": -25, "min": -45, "max": -5},
+      "humidity": {"avg": 85, "min": 70, "max": 95},
+      "precipitation": {"avg": 20, "min": 5, "max": 50},
+      "wind_speed": {"avg": 35, "min": 15, "max": 60},
+      "extreme_weather_risk": {"very_hot": 0.0, "very_cold": 0.95, "very_windy": 0.80, "very_wet": 0.05, "very_uncomfortable": 0.90}
+    },
+    "month_2": {
+      "temperature": {"avg": -30, "min": -50, "max": -10},
+      "humidity": {"avg": 87, "min": 75, "max": 95},
+      "precipitation": {"avg": 15, "min": 2, "max": 40},
+      "wind_speed": {"avg": 40, "min": 18, "max": 65},
+      "extreme_weather_risk": {"very_hot": 0.0, "very_cold": 0.98, "very_windy": 0.85, "very_wet": 0.03, "very_uncomfortable": 0.95}
+    },
+    "month_3": {
+      "temperature": {"avg": -35, "min": -55, "max": -15},
+      "humidity": {"avg": 90, "min": 80, "max": 98},
+      "precipitation": {"avg": 10, "min": 1, "max": 30},
+      "wind_speed": {"avg": 45, "min": 20, "max": 70},
+      "extreme_weather_risk": {"very_hot": 0.0, "very_cold": 0.99, "very_windy": 0.90, "very_wet": 0.02, "very_uncomfortable": 0.98}
+    },
+    "month_4": {
+      "temperature": {"avg": -40, "min": -60, "max": -20},
+      "humidity": {"avg": 92, "min": 85, "max": 98},
+      "precipitation": {"avg": 8, "min": 0, "max": 25},
+      "wind_speed": {"avg": 50, "min": 25, "max": 75},
+      "extreme_weather_risk": {"very_hot": 0.0, "very_cold": 1.0, "very_windy": 0.95, "very_wet": 0.01, "very_uncomfortable": 0.99}
+    },
+    "month_5": {
+      "temperature": {"avg": -35, "min": -55, "max": -15},
+      "humidity": {"avg": 90, "min": 80, "max": 98},
+      "precipitation": {"avg": 10, "min": 1, "max": 30},
+      "wind_speed": {"avg": 45, "min": 20, "max": 70},
+      "extreme_weather_risk": {"very_hot": 0.0, "very_cold": 0.99, "very_windy": 0.90, "very_wet": 0.02, "very_uncomfortable": 0.98}
+    },
+    "month_6": {
+      "temperature": {"avg": -30, "min": -50, "max": -10},
+      "humidity": {"avg": 87, "min": 75, "max": 95},
+      "precipitation": {"avg": 15, "min": 2, "max": 40},
+      "wind_speed": {"avg": 40, "min": 18, "max": 65},
+      "extreme_weather_risk": {"very_hot": 0.0, "very_cold": 0.98, "very_windy": 0.85, "very_wet": 0.03, "very_uncomfortable": 0.95}
+    }
+  },
+  "representative_cities": [
+    {"name": "McMurdo Station", "lat": -77.8419, "lon": 166.6863, "climate_zone": "polar"},
+    {"name": "Amundsen-Scott Station", "lat": -90.0, "lon": 0.0, "climate_zone": "polar"},
+    {"name": "Palmer Station", "lat": -64.7744, "lon": -64.0533, "climate_zone": "polar"},
+    {"name": "Casey Station", "lat": -66.2819, "lon": 110.5278, "climate_zone": "polar"},
+    {"name": "Davis Station", "lat": -68.5767, "lon": 77.9675, "climate_zone": "polar"},
+    {"name": "Mawson Station", "lat": -67.6031, "lon": 62.8736, "climate_zone": "polar"}
+  ]
+}

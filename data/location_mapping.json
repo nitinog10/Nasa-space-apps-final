@@ -1,0 +1,63 @@
+{
+  "coordinate_regions": {
+    "asia": {
+      "lat_range": [8, 55],
+      "lon_range": [73, 180],
+      "continent_file": "asia.json",
+      "hemisphere": "Northern"
+    },
+    "europe": {
+      "lat_range": [35, 71],
+      "lon_range": [-25, 45],
+      "continent_file": "europe.json",
+      "hemisphere": "Northern"
+    },
+    "north_america": {
+      "lat_range": [15, 85],
+      "lon_range": [-180, -50],
+      "continent_file": "north_america.json",
+      "hemisphere": "Northern"
+    },
+    "south_america": {
+      "lat_range": [-55, 15],
+      "lon_range": [-85, -30],
+      "continent_file": "south_america.json",
+      "hemisphere": "Southern"
+    },
+    "africa": {
+      "lat_range": [-35, 37],
+      "lon_range": [-20, 55],
+      "continent_file": "africa.json",
+      "hemisphere": "Mixed"
+    },
+    "australia": {
+      "lat_range": [-45, -10],
+      "lon_range": [113, 180],
+      "continent_file": "australia.json",
+      "hemisphere": "Southern"
+    },
+    "antarctica": {
+      "lat_range": [-90, -60],
+      "lon_range": [-180, 180],
+      "continent_file": "antarctica.json",
+      "hemisphere": "Southern"
+    }
+  },
+  "hemisphere_ranges": {
+    "northern": {
+      "lat_range": [0, 90],
+      "hemisphere_file": "northern_hemisphere.json"
+    },
+    "southern": {
+      "lat_range": [-90, 0],
+      "hemisphere_file": "southern_hemisphere.json"
+    }
+  },
+  "climate_zone_mapping": {
+    "tropical": {"lat_range": [-23.5, 23.5], "characteristics": "hot_humid"},
+    "subtropical": {"lat_range": [23.5, 35], "characteristics": "warm_seasonal"},
+    "temperate": {"lat_range": [35, 50], "characteristics": "mild_seasonal"},
+    "continental": {"lat_range": [50, 70], "characteristics": "cold_winter"},
+    "polar": {"lat_range": [70, 90], "characteristics": "very_cold"}
+  }
+}

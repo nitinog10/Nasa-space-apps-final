@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Intelligence Dashboard</title>
+    
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <h1 class="sidebar-title">Weather<br>Intelligence</h1>
+            
+            <div class="location-input">
+                <input type="number" id="latitude" placeholder="Latitude" value="23.2599" step="0.0001">
+                <input type="number" id="longitude" placeholder="Longitude" value="77.4126" step="0.0001">
+                <input type="date" id="predictionDate" class="date-input">
+                <button id="updateLocation" class="btn-primary">Update</button>
+            </div>
+            
+            <div id="currentWeather" class="current-weather">
+                <div class="loading">Loading weather...</div>
+            </div>
+            
+            <div class="risk-prediction">
+                <h3>AI Risk Assessment</h3>
+                <div id="riskContent" class="risk-content">
+                    <div class="loading">Loading risk analysis...</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Map Container -->
+            <div class="map-container">
+                <div id="weatherMap"></div>
+                <div class="layer-selector">
+                    <button class="layer-btn active" data-layer="temp_new">🌡️ Temperature</button>
+                    <button class="layer-btn" data-layer="wind_new">💨 Wind</button>
+                    <button class="layer-btn" data-layer="precipitation_new">💧 Precipitation</button>
+                    <button class="layer-btn" data-layer="clouds_new">☁️ Clouds</button>
+                </div>
+            </div>
+            
+            <!-- Forecast Container -->
+            <div class="forecast-container">
+                <h2>6-Month AI Forecast</h2>
+                <div id="forecastGrid" class="forecast-grid">
+                    <div class="loading">Loading forecast...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="dashboard.js"></script>
+</body>
+</html>
