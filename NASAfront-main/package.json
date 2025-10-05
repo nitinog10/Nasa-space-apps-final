@@ -1,0 +1,24 @@
+{
+  "name": "nasa-weather-dashboard",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "axios": "^1.6.0",
+    "leaflet": "^1.9.4",
+    "react-leaflet": "^4.2.1",
+    "plotly.js": "^2.27.0",
+    "react-plotly.js": "^2.6.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.2.0",
+    "vite": "^5.0.0"
+  }
+}
